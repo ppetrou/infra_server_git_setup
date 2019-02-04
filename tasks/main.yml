@@ -1,0 +1,20 @@
+---
+# tasks file for infra_server_git_setup
+
+# Check git user exists. Role will fail if the user does not exist and it is not in its responsibility to create it.
+- name: Check git user exists
+  shell: id -u {{ git_user }}
+
+# Create git repo folder
+- name: Create git repo folder
+  file: 
+    path: "{{ git_repo_path }}"
+    state: directory
+    owner: "{{ git_user }}"
+    group: "{{ git_user }}"
+
+# Install Git
+- name: Install Git
+  package: 
+    name: git
+    state: present

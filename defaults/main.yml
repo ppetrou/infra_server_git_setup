@@ -1,0 +1,8 @@
+---
+# defaults file for infra_server_git_setup
+
+git_user: git
+git_pass: gitpass
+
+git_repo_path: /home/git/repos/
+
